@@ -165,6 +165,28 @@
 				document.getElementById("max6").value = "5";
 				image.style.filter = "none";
 			}
+
+			// var screen_width = window.innerWidth;
+			// var screen_height = window.innerHeight;
+			// // var width = document.getElementById("image").width;
+			// // var height = document.getElementById("image").height;
+
+			// function full() {
+			// 	console.log([width,height,screen_width,screen_height]);
+			// 	if (width/height > screen_width/screen_height) {
+			// 		// document.getElementById("image").width = screen_width;
+			// 		// document.getElementById("image").height = screen_width * width/height;
+			// 		document.getElementById("image").width = screen_width;
+			// 		document.getElementById("image").height = 'auto';
+			// 	}
+			// 	else {
+			// 		// document.getElementById("image").width = screen_height * width/height;
+			// 		// document.getElementById("image").height = screen_height;
+			// 		document.getElementById("image").width = 'auto';
+			// 		document.getElementById("image").height = screen_height;
+			// 	}
+			// }
+
 		</script>
 		<style>
 			.small_button {
@@ -197,7 +219,8 @@
 		<a href="index.html" class="small_button">Homepage</a>
 		<br>
 		<br>
-		<img src="image.jpg" id="image" width="50%" height="auto">
+		<img src="image.jpg" id="image" width="auto" height="100%">
+		<!-- <button onclick="full()">Full Screen</button> -->
 		<br>
 		<button id="startbutton" onclick="start()">Start Filters</button>
 		<input type="text" id="delay" placeholder="delay in ms" style="width: 64px">
