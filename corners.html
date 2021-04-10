@@ -10,7 +10,7 @@
 			var mousex = 0;
 			var mousey = 0;
 			function mouse_position(event) {
-				if (event.clientX > 225 && event.clientX > 25) {
+				if (event.clientX > 350 && event.clientX > 25) {
 					mousex = event.clientX;
 					mousey = event.clientY;
 					// document.getElementById("debug").innerHTML = `${mousex}, ${mousey}`;
@@ -85,9 +85,10 @@
 		<div id="image"></div>
 		<button onclick="start()">Click</button>
 		<input type="text" id="speed" placeholder="speed (0-10)">
+		<a href="index.html">Homepage</a>
 		<br>
 		<span id="debug" style="font-weight: normal; font-size: 32px;"></span>
 		<br>
-		
+
 	</body>
 </html>
