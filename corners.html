@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Screensaver: Corner</title>
+	</head>
+	<body style="font-family: Futura; font-weight: bold;">
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+		<script type="text/javascript">
+			var count = 0;
+			var x = 10;
+			var y = 10;
+			var xspeed = 1;
+			var yspeed = 1;
+			var width = 100;
+			var height = 100;
+			var screen_width = window.innerWidth;
+		    var screen_height = window.innerHeight;
+			var image = document.createElement("img");
+			console.log(screen_width);
+			console.log(screen_height);
+
+			function move() {
+				if(x+width/2 >= screen_width || x+width/2 <= 0){
+			        xspeed *= -1;
+			        console.log([x,y]);
+			    }
+			        
+			    if(y+height/2 >= screen_height || y+height/2 <= 0){
+			        yspeed *= -1;
+			        console.log([x,y]);
+			    }    
+
+				x += xspeed;
+				y += yspeed;
+
+				image.style.left = `${x}px`;
+				image.style.top = `${y}px`;
+				document.getElementById("debug").innerHTML = `${x}, ${y}`;
+			}
+
+			function start() {
+			    document.body.appendChild(image);
+				image.id = `image_${count}`
+				image.src = "image.png";
+				image.width = "100";
+				image.height = "100";
+				image.style.display = "block";
+				image.style.position = "absolute";
+				image.style.left = "10px";
+				image.style.top = "10px";
+				count++;
+				var interval = setInterval(move, 0);
+			}
+
+
+		</script>
+
+		<div id="image"></div>
+		<button onclick="start()">Click</button>
+		<br>
+		<span id="debug" style="font-weight: normal; font-size: 32px;"></span>
+		<br>
+		
+	</body>
+</html>
