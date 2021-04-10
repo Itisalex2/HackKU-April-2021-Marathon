@@ -5,13 +5,6 @@
 	</head>
 	<body style="font-family: Futura; font-weight: bold;" onload="load()">
 		<script>
-			function pickColor() {
-				r = Math.random() * (254 - 0) + 0;
-				g = Math.random() * (254 - 0) + 0;
-				b = Math.random() * (254 - 0) + 0;
-				logoColor = 'rgb('+r+','+g+', '+b+')';
-			}
-
 			function ran(min, max) {
 				min = Math.ceil(min);
 				max = Math.floor(max);
@@ -34,6 +27,8 @@
 			var max6 = 0;
 			var values = [];
 			var oldvalues = [];
+			var mins = []
+			var maxs = []
 
 			function load() {
 				min0 = Number(document.getElementById("min0").value);
@@ -50,6 +45,8 @@
 				max5 = Number(document.getElementById("max5").value);
 				min6 = Number(document.getElementById("min6").value);
 				max6 = Number(document.getElementById("max6").value);
+				mins = [min0,min1,min2,min3,min4,min5,min6];
+				maxs = [max0,max1,max2,max3,max4,max5,max6];
 				// console.log([[min0,max0],[min1,max1],[min2,max2],[min3,max3],[min4,max4],[min5,max5],[min6,max6]]);
 				values = [ran(min0,max0),ran(min1,max1),ran(min2,max2),ran(min3,max3),ran(min4,max4),ran(min5,max5),ran(min6,max6)];
 				oldvalues = [ran(min0,max0),ran(min1,max1),ran(min2,max2),ran(min3,max3),ran(min4,max4),ran(min5,max5),ran(min6,max6)];
@@ -81,8 +78,7 @@
 						oldvalues[i]++;
 					}
 					else if (values[i] == oldvalues[i]) {
-						array = [ran(min0,max0),ran(min1,max1),ran(min2,max2),ran(min3,max3),ran(min4,max4),ran(min5,max5),ran(min6,max6)];
-						values[i] = array[i];
+						values[i] = ran(mins[i],maxs[i]);
 					}
 				}
 				image.style.filter = string;
