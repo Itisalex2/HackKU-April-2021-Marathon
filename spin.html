@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cubes</title>
+	</head>
+	<body style="text-align: center; font-family: Futura; font-weight: bold;">
+		<style>
+			.cube {
+				top: 240px;
+				left: 50%;
+				transform-style: preserve-3d;
+				margin: auto;
+				position: absolute;
+				transform-origin: 100% 100%;
+				transition: all 0.5s ease-in-out;
+				display: block;
+				animation: cubeRotation 8s infinite linear;
+			}
+			.side1, .side2, .side3, .side4, .side5, .side6 {
+				position: absolute;
+				transition: all 0.5s ease-in-out;
+				width: 256px;
+				height: 256px;
+			}
+			@keyframes cubeRotation {
+				0% {
+					transform: scale(1.5) rotateX(-18deg) rotateY(-45deg) rotateZ(0deg) translate3d(-320px,32px,-192px);;
+				}
+				25% {
+					transform: scale(1.5) rotateX(-18deg) rotateY(-135deg) rotateZ(0deg) translate3d(-320px,32px,-192px);
+				}
+				50% {
+					transform: scale(1.5) rotateX(-18deg) rotateY(-225deg) rotateZ(0deg) translate3d(-320px,32px,-192px);
+				}
+				75% {
+					transform: scale(1.5) rotateX(-18deg) rotateY(-315deg) rotateZ(0deg) translate3d(-320px,32px,-192px);
+				}
+				100% {
+					transform: scale(1.5) rotateX(-18deg) rotateY(-405deg) rotateZ(0deg) translate3d(-320px,32px,-192px);;
+				}
+			}
+		</style>
+		<div class="cube" style="transform: scale(1.5) rotateX(-18deg) rotateY(-45deg) rotateZ(0deg) translate3d(-320px,32px,-192px);">
+			<div class="side1" style="transform: rotateX(90deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+			<div class="side2" style="transform: rotateY(-90deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+			<div class="side3" style="transform: rotateY(0deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+			<div class="side4" style="transform: rotateY(90deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+			<div class="side5" style="transform: rotateY(180deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+			<div class="side6" style="transform: rotateX(-90deg) translateZ(128px); background-image:url('image.png'); background-size: 256px 256px"></div>
+		</div>
+	</body>
+</html>
+
