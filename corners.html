@@ -10,7 +10,7 @@
 			var mousex = 0;
 			var mousey = 0;
 			function mouse_position(event) {
-				if (event.clientX > 350 && event.clientX > 25) {
+				if (event.clientX > 220 || event.clientY > 25) {
 					mousex = event.clientX;
 					mousey = event.clientY;
 					// document.getElementById("debug").innerHTML = `${mousex}, ${mousey}`;
