@@ -148,6 +148,23 @@
 				started = !started;
 			}
 
+			function reset() {
+				document.getElementById("min0").value = "100";
+				document.getElementById("max0").value = "100";
+				document.getElementById("min1").value = "100";
+				document.getElementById("max1").value = "150";
+				document.getElementById("min2").value = "0";
+				document.getElementById("max2").value = "25";
+				document.getElementById("min3").value = "0";
+				document.getElementById("max3").value = "360";
+				document.getElementById("min4").value = "0";
+				document.getElementById("max4").value = "0";
+				document.getElementById("min5").value = "75";
+				document.getElementById("max5").value = "250";
+				document.getElementById("min6").value = "0";
+				document.getElementById("max6").value = "5";
+				image.style.filter = "none";
+			}
 		</script>
 		<style>
 			.small_button {
@@ -213,6 +230,7 @@
 		<input type="text" id="min6" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
 		<input type="text" id="max6" value="5" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
 		<br>
+		<button id="reset" onclick="reset()">Reset</button>
 		
 	</body>
 </html>
