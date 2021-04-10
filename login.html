@@ -4,6 +4,18 @@
 		<title>Login</title>
 	</head>
 	<script type="text/javascript">
+		function login() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+
+		}
+
+		function register() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+
+		}
+
 	</script>
 
 	<style>
@@ -33,12 +45,53 @@
 			transform: scale(1.08);
 			color: inherit;
 		}
+
+		.button {
+			border-radius: 12px;
+			padding: 8px;
+			width: 320px;
+			border-color: black;
+			margin-bottom: 8px;
+			transition-duration: 0.2s;
+			transition-property: transform;
+		}
+
+		.button:hover, .button:focus, .button:active {
+			transform: scale(1.04);
+		}
+
+		.textbox {
+			border-radius: 12px;
+			padding: 8px;
+			width: 300px;
+			border-color: black;
+			margin-bottom: 8px;
+			transition-duration: 0.2s;
+			transition-property: transform;
+		}
+
+		.textbox:hover, .textbox:focus, .textbox:active {
+			transform: scale(1.04);
+		}
+
 	</style>
 
 	<body style= "font-family: Futura; font-weight: bold;">
 		<a href="index.html" class="small_button">Homepage</a>
-		<center style="font-size: 32px">
-			Sign Up!
+		<center style="font-size: 40px; padding-bottom: 10px">
+			Login/Register
 		</center>
+		<div style="border-radius: 32px; text-align: center; background-color: #EEE; width: 375px; margin: auto; ">
+			<br>
+			<input class="textbox" type="text" id="username" placeholder="Username" style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<input class="textbox" type="text" id="password" placeholder="Password" style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<button class="button" onclick="login()" style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Login</button>
+			<br>
+			<button class="button" onclick="register()" style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Register</button>
+			<br>
+			<br>
+		</div>
 	</body>
 </html>
