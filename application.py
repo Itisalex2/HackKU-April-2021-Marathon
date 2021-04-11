@@ -5,6 +5,7 @@ from functools import wraps
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+import random
 
 
 # Connecting to the database
@@ -22,7 +23,7 @@ db = cs50.SQL("sqlite:///storage.db")
 
 # Adding/removing photos table
 # db.execute(
-#     "CREATE TABLE photos (username TINYTEXT NOT NULL, photo_name TEXT, photo_url TEXT)"
+#     "CREATE TABLE photos (username TINYTEXT NOT NULL, photo_url TEXT)"
 # )
 # db.execute("DROP TABLE photos")
 
@@ -180,24 +181,45 @@ def register():
 @app.route("/corners")
 def corners():
     """ Load bouncing images """
-    return render_template("corners.html")
+    random_url = randomise_image()
+    return render_template("corners.html", random_url=random_url)
 
 
 @app.route("/spin")
 def spin():
-    """ Load bouncing images """
-    return render_template("spin.html")
+    """ Load spinning images """
+    random_url = randomise_image()
+    return render_template("spin.html", random_url=random_url)
 
 
 @app.route("/filters")
 def filters():
-    """ Load bouncing images """
-    return render_template("filters.html")
+    """ Load filtered images """
+    random_url = randomise_image()
+    return render_template("filters.html", random_url=random_url)
 
 
 @app.route("/input", methods=["GET", "POST"])
 def input():
-    print(request.form.get("links_array"))
+    """ Allowing the user to input url's """
+    # Taking the input data from html
+    link_array = []
+    tempString = ""
+    request_array = request.form.get("links_array")
+    for pos, value in enumerate(request_array):
+        if value == ",":
+            link_array.append((tempString))
+            tempString = ""
+        else:
+            tempString += str(value)
+    link_array.append(tempString)
+    # Figuring out who is the current user
+    user = db.execute("SELECT * FROM users WHERE ID = :ID",
+                      ID=session["user_id"])
+    # Entering the data into the database
+    for link in link_array:
+        db.execute("INSERT INTO photos (username, photo_url) VALUES (:username, :photo_url)",
+                   username=user[0]["username"], photo_url=link)
     return redirect("/")
 
 
@@ -206,6 +228,17 @@ def errorhandler(e):
     if not isinstance(e, HTTPException):
         e = InternalServerError()
     return apology(e.name, e.code)
+
+
+def randomise_image():
+    # Figuring out who is the current user
+    user = db.execute("SELECT * FROM users WHERE ID = :ID",
+                      ID=session["user_id"])
+    urls = db.execute("SELECT photo_url FROM photos WHERE username = :username",
+                      username=user[0]["username"])
+    random_number = random.randint(0, len(urls) - 1)
+    random_url = urls[random_number]["photo_url"]
+    return random_url
 
 
 # Listen for errors
