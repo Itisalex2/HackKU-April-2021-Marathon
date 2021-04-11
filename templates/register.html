@@ -5,80 +5,79 @@
 <html>
 
 <head>
-    <title>Login</title>
+	<title>Login</title>
 </head>
 <script type="text/javascript">
-    function register() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        var password2 = document.getElementById("password2").value;
-        if (password2 == "") {
-            document.getElementById("password_div").style.display = "inline";
-        }
+	function register() {
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		var password2 = document.getElementById("password2").value;
+		if (password2 == "") {
+			document.getElementById("password_div").style.display = "inline";
+		}
 
-    }
+	}
 
 </script>
 
 <style>
-    .button {
-        border-radius: 12px;
-        padding: 12px;
-        width: 320px;
-        border-color: transparent;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        transition-duration: 0.2s;
-        transition-property: transform;
-        color: #555;
-        background-color: #BBB;
-    }
+	.button {
+		border-radius: 12px;
+		padding: 12px;
+		width: 320px;
+		border-color: transparent;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		transition-duration: 0.2s;
+		transition-property: transform;
+		color: #555;
+		background-color: #BBB;
+	}
 
-    .button:hover,
-    .button:focus,
-    .button:active {
-        transform: scale(1.04);
-    }
+	.button:hover,
+	.button:focus,
+	.button:active {
+		transform: scale(1.04);
+	}
 
-    .textbox {
-        border-radius: 12px;
-        padding: 12px;
-        width: 292px;
-        border-color: transparent;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        transition-duration: 0.2s;
-        transition-property: transform;
-    }
+	.textbox {
+		border-radius: 12px;
+		padding: 12px;
+		width: 292px;
+		border-color: transparent;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		transition-duration: 0.2s;
+		transition-property: transform;
+	}
 
-    .textbox:hover,
-    .textbox:focus,
-    .textbox:active {
-        transform: scale(1.04);
-    }
+	.textbox:hover,
+	.textbox:focus,
+	.textbox:active {
+		transform: scale(1.04);
+	}
 </style>
 
 <body style="font-family: Futura; font-weight: bold;">
-    <center style="font-size: 40px; padding-bottom: 10px">
-        Register:
-    </center>
-    <div
-        style="border-radius: 32px; text-align: center; background-color: #EEE; width: 375px; margin: auto; padding-top: 15px;">
-        <form action="/register" method="post" style="margin: 0px;">
-            <input class="textbox" type="text" id="username" name="username" placeholder="Username"
-                style="font-family: Futura; text-align: center; font-size: 24px">
-            <br>
-            <input class="textbox" type="text" id="password" name="password" placeholder="Password"
-                style="font-family: Futura; text-align: center; font-size: 24px">
-            <br>
-            <input class="textbox" type="text" id="confirmation_password" name="confirmation_password"
-                placeholder="Confirmation Password" style="font-family: Futura; text-align: center; font-size: 24px">
-            <br>
-            <button class="button" onclick="register()"
-                style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px ">Register</button>
-        </form>
-        <br>
-    </div>
+	<center style="font-size: 40px; padding-bottom: 10px">
+		Register:
+	</center>
+	<div style="border-radius: 32px; text-align: center; background-color: #EEE; width: 375px; margin: auto; padding-top: 15px;">
+		<form action="/register" method="post" style="margin: 0px;">
+			<input class="textbox" type="text" id="username" name="username" placeholder="Username"
+				style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<input class="textbox" type="text" id="password" name="password" placeholder="Password"
+				style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<input class="textbox" type="text" id="confirmation_password" name="confirmation_password"
+				placeholder="Confirmation Password" style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<button class="button" onclick="register()"
+				style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px ">Register</button>
+		</form>
+		<br>
+	</div>
 </body>
 
 </html>
