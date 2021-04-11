@@ -65,6 +65,7 @@ def apology(message, code=400):
     def escape(string):
         """
         Escape special characters.
+
         https://github.com/jacebrowning/memegen#special-characters
         """
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
@@ -77,6 +78,7 @@ def apology(message, code=400):
 def login_required(f):
     """
     Decorate routes to require login.
+
     http://flask.pocoo.org/docs/1.0/patterns/viewdecorators/
     """
     @wraps(f)
@@ -191,6 +193,12 @@ def spin():
 def filters():
     """ Load bouncing images """
     return render_template("filters.html")
+
+
+@app.route("/input", methods=["GET", "POST"])
+def input():
+    print(request.form.get("links_array"))
+    return redirect("/")
 
 
 def errorhandler(e):
