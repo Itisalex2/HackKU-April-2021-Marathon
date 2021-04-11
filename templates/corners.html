@@ -9,7 +9,7 @@
 
 {% block main %}
 
-<body style="font-family: Futura; font-weight: bold;">
+<body style="font-family: Futura; font-weight: bold;" onload="load()">
 	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 	<script type="text/javascript">
 		var mousex = 0;
@@ -84,6 +84,15 @@
 			setInterval(move, 0);
 		}
 
+		function load() {
+			// var dark = 
+			if (dark) {
+				document.body.classList.toggle("darkmode");
+			}
+			else {
+				document.body.classList.toggle("lightmode");
+			}
+		}
 
 	</script>
 	<style>
@@ -116,6 +125,21 @@
 			transform: scale(1.08);
 			color: inherit;
 		}
+
+		.darkmode {
+			background-color: black;
+			color: white;
+			transition: 0.5s;
+			box-shadow: white;
+		}
+
+		.lightmode {
+			background-color: white;
+			color: black;
+			transition: 0.5s;
+			box-shadow: black;
+		}
+
 	</style>
 	<div id="image"></div>
 	<button onclick="start()">Click</button>

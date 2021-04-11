@@ -5,7 +5,7 @@
 	<title>Screensaver: Flip</title>
 </head>
 
-<body style="font-family: Futura; font-weight: bold;" onload="setup()">
+<body style="font-family: Futura; font-weight: bold;" onload="setup()" onload="load()">
 	<script>
 		function change() {
 			document.getElementById("image").src="image.png";
@@ -14,6 +14,16 @@
 
 		function setup() {
 			setTimeout(change,500);
+		}
+
+		function load() {
+			// var dark = 
+			if (dark) {
+				document.body.classList.toggle("darkmode");
+			}
+			else {
+				document.body.classList.toggle("lightmode");
+			}
 		}
 
 	</script>
@@ -54,6 +64,21 @@
 			animation: spin infinite;
 			animation-duration: 4s;
 		}
+
+		.darkmode {
+			background-color: black;
+			color: white;
+			transition: 0.5s;
+			box-shadow: white;
+		}
+
+		.lightmode {
+			background-color: white;
+			color: black;
+			transition: 0.5s;
+			box-shadow: black;
+		}
+
 
 		@keyframes spin {
 			0% {

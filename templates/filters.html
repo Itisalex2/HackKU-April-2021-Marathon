@@ -185,6 +185,16 @@
 			// 	}
 			// }
 
+		function load() {
+			// var dark = 
+			if (dark) {
+				document.body.classList.toggle("darkmode");
+			}
+			else {
+				document.body.classList.toggle("lightmode");
+			}
+		}
+
 	</script>
 	<style>
 		.small_button {
@@ -216,6 +226,21 @@
 			transform: scale(1.08);
 			color: inherit;
 		}
+
+		.darkmode {
+			background-color: black;
+			color: white;
+			transition: 0.5s;
+			box-shadow: white;
+		}
+
+		.lightmode {
+			background-color: white;
+			color: black;
+			transition: 0.5s;
+			box-shadow: black;
+		}
+
 	</style>
 	<form action="/" method="get">
 		<button class="small_button" style="right">

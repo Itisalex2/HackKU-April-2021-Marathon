@@ -67,7 +67,13 @@
 	}
 
 	function load() {
-		document.body.classList.toggle("lightmode");
+		// dark = 
+		if (dark) {
+			document.body.classList.toggle("darkmode");
+		}
+		else {
+			document.body.classList.toggle("lightmode");
+		}
 	}
 
 </script>
