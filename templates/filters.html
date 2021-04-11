@@ -185,8 +185,21 @@
 		// 	}
 		// }
 
+		var dark = false;
+		function dark_mode() {
+			dark = !dark;
+			if (dark) {
+				document.getElementById("mode").innerHTML = "Light Mode";
+			}
+			else {
+				document.getElementById("mode").innerHTML = "Dark Mode";
+			}
+			document.body.classList.toggle("darkmode");
+			document.body.classList.toggle("lightmode");
+		}
+
 		function load() {
-			// var dark = 
+			// dark = 
 			if (dark) {
 				document.body.classList.toggle("darkmode");
 			}
@@ -246,6 +259,9 @@
 			Homepage
 		</button>
 	</form>
+	<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
+	<br>
+	<br>
 	<br>
 	<br>
 	<img src="{{ random_url }}" id="image" width="auto" height="100%">

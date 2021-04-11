@@ -84,8 +84,21 @@
 			setInterval(move, 0);
 		}
 
+		var dark = false;
+		function dark_mode() {
+			dark = !dark;
+			if (dark) {
+				document.getElementById("mode").innerHTML = "Light Mode";
+			}
+			else {
+				document.getElementById("mode").innerHTML = "Dark Mode";
+			}
+			document.body.classList.toggle("darkmode");
+			document.body.classList.toggle("lightmode");
+		}
+
 		function load() {
-			// var dark = 
+			// dark = 
 			if (dark) {
 				document.body.classList.toggle("darkmode");
 			}
@@ -140,6 +153,7 @@
 			box-shadow: black;
 		}
 	</style>
+	<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
 	<div id="image"></div>
 	<button onclick="start()">Click</button>
 	<input type="text" id="speed" placeholder="speed (0-10)">

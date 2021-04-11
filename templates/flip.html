@@ -5,19 +5,29 @@
 	<title>Screensaver: Flip</title>
 </head>
 
-<body style="font-family: Futura; font-weight: bold;" onload="setup()" onload="load()">
+<body style="font-family: Futura; font-weight: bold;" onload="load()">
 	<script>
 		function change() {
 			document.getElementById("image").src = "{{ random_url }}";
 			setTimeout(change, 2000);
 		}
 
-		function setup() {
-			setTimeout(change, 500);
+		var dark = false;
+		function dark_mode() {
+			dark = !dark;
+			if (dark) {
+				document.getElementById("mode").innerHTML = "Light Mode";
+			}
+			else {
+				document.getElementById("mode").innerHTML = "Dark Mode";
+			}
+			document.body.classList.toggle("darkmode");
+			document.body.classList.toggle("lightmode");
 		}
 
 		function load() {
-			// var dark = 
+			setTimeout(change, 500);
+			// dark = 
 			if (dark) {
 				document.body.classList.toggle("darkmode");
 			}
@@ -101,6 +111,7 @@
 			Homepage
 		</button>
 	</form>
+	<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
 	<img class="image" id="image" src="{{ random_url }}"></img>
 </body>
 

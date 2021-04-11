@@ -18,15 +18,28 @@
 
 		setInterval(speed, 100);
 
-		function load() {
-			// var dark = 
-			if (dark) {
-				document.body.classList.toggle("darkmode");
-			}
-			else {
-				document.body.classList.toggle("lightmode");
-			}
+		var dark = false;
+	function dark_mode() {
+		dark = !dark;
+		if (dark) {
+			document.getElementById("mode").innerHTML = "Light Mode";
 		}
+		else {
+			document.getElementById("mode").innerHTML = "Dark Mode";
+		}
+		document.body.classList.toggle("darkmode");
+		document.body.classList.toggle("lightmode");
+	}
+
+	function load() {
+		// dark = 
+		if (dark) {
+			document.body.classList.toggle("darkmode");
+		}
+		else {
+			document.body.classList.toggle("lightmode");
+		}
+	}
 		
 	</script>
 	<style>
@@ -126,6 +139,7 @@
 			Homepage
 		</button>
 	</form>
+	<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
 	<div class="cube" id="cube"
 		style="transform: scale(1.5) rotateX(-18deg) rotateY(-45deg) rotateZ(0deg) translate3d(-320px,32px,-192px);">
 		<div class="side1"
