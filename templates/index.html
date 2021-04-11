@@ -45,6 +45,7 @@
 
 			}
 			console.log(links);
+			document.getElementById("links_array").innerHTML = links.toString();
 		}
 
 	</script>
@@ -158,6 +159,7 @@
 				</div>
 			</div>
 			<button onclick="save_links()" style="font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #b3e3ff; margin: 10px; margin-bottom: 5px; color: #004990;">Save</button>
+			<p id="links_array" style="display: none;"></p>
 		</div>
 	</body>
 </html>
