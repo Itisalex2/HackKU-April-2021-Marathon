@@ -17,6 +17,36 @@
 				document.getElementById("info").style.display = "none";
 			}
 		}
+
+		var input_count = 1;
+		function new_link() {
+			input_count++;
+			var inputhtml = `
+			<div id="input${input_count}">
+				<input id="link${input_count}" type="text" class="textbox" placeholder="Link" style="width: 350px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; ">
+				<button onclick="del(${input_count})" style="width: 25px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #ff8080; color: #800000; margin-right: -5px;">X</button>
+				<br>
+			</div>
+			`;
+			document.getElementById("inputs").insertAdjacentHTML("beforeend", inputhtml);
+		}
+
+		function del(number) {
+			var element = document.getElementById("input"+String(number));
+			element.style.display = "none";
+		}
+
+		function save_links() {
+			var links = [];
+			for (var i = 1; i <= input_count; i++) {
+				if (document.getElementById("input"+String(i)).style.display != "none" && document.getElementById("link"+String(i)).value != "") {
+					links.push(document.getElementById("link"+String(i)).value);
+				}
+
+			}
+			console.log(links);
+		}
+
 	</script>
 	<style>
 		.button {
@@ -25,6 +55,7 @@
 			font-size: 32px;
 			outline: none;
 			color: #004990;
+			background-color: #b3e3ff;
 			border: none;
 			border-radius: 15px;
 			width: 500px;
@@ -87,7 +118,7 @@
 			<button class="small_button" style="text-align: left; font-size:20px" type="submit">Logout</button>
 		</form>
 		<center style="font-size: 48px">
-			Screensavers for HackKU
+			Welcome Back!
 		</center>
 		<br>
 		<form action="/corners" method="get" style="margin: 0px;">
@@ -97,26 +128,37 @@
 		</form>
 		<br>
 		<form action="/spin" method="get" style="margin: 0px;">
-			<button style="background-color: #b3e3ff; text-align: center;" class="button">
+			<button style="text-align: center;" class="button">
 				Spinning Image
 			</button>
 		</form>
 		<br>
 		<form action="/filters" method="get" style="margin: 0px;">
-			<button style="background-color: #b3e3ff; text-align: center;" class="button">
+			<button style="text-align: center;" class="button">
 				Colour Filters
 			</button>
 		</form>
 		<br>
-		<button style="background-color: #b3e3ff; text-align: center;" class="button" onclick="about_us()">About Us</button>
+		<button style="text-align: center;" class="button" onclick="about_us()">About Us</button>
 		<br>
 		<span id="info"
-			style="font-weight: normal; font-size: 24px; text-align: center; display: none; background-color: #EEE; width: 500px; margin: auto; border-radius: 15px; padding: 10px 10px">
+			style="font-weight: normal; font-size: 24px; text-align: center; display: none; background-color: #e4f8ff; width: 480px; margin: auto; border-radius: 15px; padding: 10px 10px">
 			Welcome to this website!<br>
 			HackKU: General Track<br>
 			Created by Alex and Kee Meng<br>
 		</span>
 		<br>
+		<div style="top: 15px; right: 15px; position: absolute; background-color: #e4f8ff; text-align: center; padding: 10px; border-radius: 10px">
+			<div id="inputs">
+				<button onclick="new_link()" style="font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #b3e3ff; margin: 10px; margin-top:0px; color: #004990;">Add Link</button>
+				<div id="input1">
+					<input id="link1" type="text" class="textbox" placeholder="Link" style="width: 350px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; ">
+					<button onclick="del(1)" style="width: 25px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #ff8080; color: #800000; margin-right: -5px;">X</button>
+					<br>
+				</div>
+			</div>
+			<button onclick="save_links()" style="font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #b3e3ff; margin: 10px; margin-bottom: 5px; color: #004990;">Save</button>
+		</div>
 	</body>
 </html>
 {% endblock %}
