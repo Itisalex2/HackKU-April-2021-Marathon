@@ -1,6 +1,4 @@
 import cs50
-import os
-import datetime
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
@@ -43,8 +41,6 @@ app = Flask(__name__)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Variables
-
 
 # Ensure responses aren't cached
 
@@ -69,7 +65,6 @@ def apology(message, code=400):
     def escape(string):
         """
         Escape special characters.
-
         https://github.com/jacebrowning/memegen#special-characters
         """
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
@@ -82,7 +77,6 @@ def apology(message, code=400):
 def login_required(f):
     """
     Decorate routes to require login.
-
     http://flask.pocoo.org/docs/1.0/patterns/viewdecorators/
     """
     @wraps(f)
@@ -131,7 +125,6 @@ def login():
         session["user_id"] = rows[0]["ID"]
 
         # Redirect user to home page
-        print("hi")
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -158,7 +151,6 @@ def register():
         # Define the length of the username row to check if the username is already present
         row_length = db.execute(
             "SELECT username FROM users WHERE username = :username", username=request.form.get("username"))
-
         # Ensure username was submitted
         if not request.form.get("username"):
             return apology("must provide username", 403)
@@ -170,7 +162,6 @@ def register():
         # Ensure passwords match
         elif request.form.get("password") != request.form.get("confirmation_password"):
             return apology("Passwords do not match", 403)
-
         # Ensure the username hasn't been taken
         elif len(row_length) != 0:
             return apology("Username already taken", 403)
@@ -180,7 +171,7 @@ def register():
             # Remember which user has logged in
             rows = db.execute("SELECT * FROM users WHERE username = :username",
                               username=request.form.get("username"))
-            session["user_id"] = rows[0]["id"]
+            session["user_id"] = rows[0]["ID"]
             return redirect("/")
 
 
