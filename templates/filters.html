@@ -29,8 +29,8 @@
 		var max6 = 0;
 		var values = [];
 		var oldvalues = [];
-		var mins = []
-		var maxs = []
+		var mins = [];
+		var maxs = [];
 
 		function load() {
 			min0 = Number(document.getElementById("min0").value);
@@ -89,6 +89,7 @@
 		var started = false;
 		var repeat = null;
 		function start() {
+			load();
 			if (started) {
 				document.getElementById("startbutton").innerHTML = "Start Filters";
 				document.getElementById("delay").style.display = "inline-block";
@@ -144,6 +145,12 @@
 				repeat = setInterval(filter, delay);
 			}
 			started = !started;
+			if (dark) {
+				document.body.classList.toggle("darkmode");
+			}
+			else {
+				document.body.classList.toggle("lightmode");
+			}
 		}
 
 		function reset() {
@@ -196,16 +203,6 @@
 			}
 			document.body.classList.toggle("darkmode");
 			document.body.classList.toggle("lightmode");
-		}
-
-		function load() {
-			// dark = 
-			if (dark) {
-				document.body.classList.toggle("darkmode");
-			}
-			else {
-				document.body.classList.toggle("lightmode");
-			}
 		}
 
 	</script>
@@ -264,7 +261,8 @@
 	<br>
 	<br>
 	<br>
-	<img src="{{ random_url }}" id="image" width="auto" height="100%">
+	<img src="image.jpg" id="image" width="auto" height="100%">
+	<!-- <img src="{{ random_url }}" id="image" width="auto" height="100%"> -->
 	<!-- <button onclick="full()">Full Screen</button> -->
 	<br>
 	<button id="startbutton" onclick="start()">Start Filters</button>
