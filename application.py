@@ -43,6 +43,9 @@ app = Flask(__name__)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+# Variables
+
+
 # Ensure responses aren't cached
 
 
@@ -172,13 +175,31 @@ def register():
         elif len(row_length) != 0:
             return apology("Username already taken", 403)
         else:
-            db.execute("INSERT INTO users (username, hash, cash) VALUES (:username, :password_hash, 10000)", username=request.form.get(
+            db.execute("INSERT INTO users (username, HASH) VALUES (:username, :password_hash)", username=request.form.get(
                 "username"), password_hash=generate_password_hash(request.form.get("password")))
             # Remember which user has logged in
             rows = db.execute("SELECT * FROM users WHERE username = :username",
                               username=request.form.get("username"))
             session["user_id"] = rows[0]["id"]
             return redirect("/")
+
+
+@app.route("/corners")
+def corners():
+    """ Load bouncing images """
+    return render_template("corners.html")
+
+
+@app.route("/spin")
+def spin():
+    """ Load bouncing images """
+    return render_template("spin.html")
+
+
+@app.route("/filters")
+def filters():
+    """ Load bouncing images """
+    return render_template("filters.html")
 
 
 def errorhandler(e):
