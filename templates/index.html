@@ -161,11 +161,10 @@
 	<form action="/logout" method="get" style="margin: 0px;">
 		<button class="small_button" style="text-align: left; font-size:16px" type="submit">Logout</button>
 	</form>
+	<p style="position: absolute; top: -4px; left: 80px; font-weight: normal; font-size: 16px; ">Logged in as: {{username}}<span id="username"></span></p>
 	<button id="mode" class="small_button" style="text-align: left; font-size:16px; top:50px;" onclick="dark_mode()">Dark Mode</button>
-	<p style="position: absolute; top: 0px; left: 90px; font-weight: normal; font-size: 16px; ">Logged in as: {{
-        username}}<span id="username"></span></p>
 	<center style="font-size: 48px">
-		Welcome Back!
+		Welcome Back {{username}}!
 	</center>
 	<br>
 	<form action="/corners" method="get" style="margin: 0px;">

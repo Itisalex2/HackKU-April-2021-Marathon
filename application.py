@@ -94,8 +94,8 @@ def login_required(f):
 @login_required
 def index():
 	""" Homepage """
-	user_id = session["user_id"]
-	return render_template("index.html")
+	user = db.execute("SELECT * FROM users WHERE ID = :ID", ID=session["user_id"])
+	return render_template("index.html", username=user[0]["username"])
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -246,11 +246,6 @@ def randomise_image():
 	random_number = random.randint(0, len(urls) - 1)
 	random_url = urls[random_number]["photo_url"]
 	return random_url
-
-def index():
-	""" Homepage """
-	user = db.execute("SELECT * FROM users WHERE ID = :ID", ID=session["user_id"])
-	return render_template("index.html", username=user[0]["username"])
 
 # Listen for errors
 for code in default_exceptions:
