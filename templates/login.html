@@ -5,123 +5,76 @@
 <html>
 
 <head>
-    <title>Login</title>
+	<title>Login</title>
 </head>
 <script type="text/javascript">
-    function login() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
+	function login() {
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
 
-    }
-
-    function register() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        var password2 = document.getElementById("password2").value;
-        if (password2 == "") {
-            document.getElementById("password_div").style.display = "inline";
-        }
-
-    }
+	}
 
 </script>
 
 <style>
-    .small_button {
-        padding: 5px 5px;
-        font-family: Futura;
-        font-size: 16px;
-        border-radius: 8px;
-        border-color: inherit;
-        margin: auto;
-        vertical-align: middle;
-        transform: perspective(1px);
-        transition-duration: 0.2s;
-        transition-property: transform;
-        color: inherit;
-        background-color: #CCC;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-    }
+	.button {
+		border-radius: 12px;
+		padding: 12px;
+		width: 325px;
+		border-color: transparent;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		transition-duration: 0.2s;
+		transition-property: transform;
+		color: #555;
+	}
 
-    .small_button:hover,
-    .small_button:focus {
-        transform: scale(1.05);
-        color: inherit;
-    }
+	.button:hover,
+	.button:focus,
+	.button:active {
+		transform: scale(1.04);
+	}
 
-    .small_button:active {
-        animation-duration: 0.1s;
-        transform: scale(1.08);
-        color: inherit;
-    }
+	.textbox {
+		border-radius: 12px;
+		padding: 12px;
+		width: 300px;
+		border-color: transparent;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		transition-duration: 0.2s;
+		transition-property: transform;
+	}
 
-    .button {
-        border-radius: 12px;
-        padding: 12px;
-        width: 325px;
-        border-color: transparent;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        transition-duration: 0.2s;
-        transition-property: transform;
-        color: #555;
-    }
-
-    .button:hover,
-    .button:focus,
-    .button:active {
-        transform: scale(1.04);
-    }
-
-    .textbox {
-        border-radius: 12px;
-        padding: 12px;
-        width: 300px;
-        border-color: transparent;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        transition-duration: 0.2s;
-        transition-property: transform;
-    }
-
-    .textbox:hover,
-    .textbox:focus,
-    .textbox:active {
-        transform: scale(1.04);
-    }
+	.textbox:hover,
+	.textbox:focus,
+	.textbox:active {
+		transform: scale(1.04);
+	}
 </style>
 
 <body style="font-family: Futura; font-weight: bold;">
-    <center style="font-size: 40px; padding-bottom: 10px">
-        Login/Register
-    </center>
-    <div style="border-radius: 32px; text-align: center; background-color: #EEE; width: 375px; margin: auto; ">
-        <br>
-        <div id="password_div" style="display: none">
-            <input class="textbox" type="text" id="password2" placeholder="Password Confirm"
-                style="font-family: Futura; text-align: center; font-size: 24px;">
-            <br>
-        </div>
-        <form action="/login" method="post">
-            <input class="textbox" type="text" id="username" name="username" placeholder="Username"
-                style="font-family: Futura; text-align: center; font-size: 24px">
-            <br>
-            <input class="textbox" type="text" id="password" name="password" placeholder="Password"
-                style="font-family: Futura; text-align: center; font-size: 24px">
-            <br>
-            <button class="button" onclick="login()"
-                style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Login</button>
-            <br>
-        </form>
-        <form action="/register" method="get">
-            <button class="button" onclick="register()"
-                style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Register</button>
-        </form>
-        <br>
-        <br>
-    </div>
+	<center style="font-size: 40px; padding-bottom: 10px">
+		Login: 
+	</center>
+	<div style="border-radius: 32px; text-align: center; background-color: #EEE; width: 375px; margin: auto; padding-top: 15px;">
+		<form action="/login" method="post">
+			<input class="textbox" type="text" id="username" name="username" placeholder="Username"
+				style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<input class="textbox" type="text" id="password" name="password" placeholder="Password"
+				style="font-family: Futura; text-align: center; font-size: 24px">
+			<br>
+			<button class="button" onclick="login()"
+				style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Login</button>
+			<br>
+		</form>
+		<form action="/register" method="get">
+			<button class="button"
+				style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Register</button>
+		</form>
+		<br>
+	</div>
 </body>
 
 </html>
