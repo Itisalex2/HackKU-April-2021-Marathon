@@ -199,6 +199,13 @@ def filters():
     return render_template("filters.html", random_url=random_url)
 
 
+@app.route("/flip")
+def flip():
+    """ Load flipping images """
+    random_url = randomise_image()
+    return render_template("flip.html", random_url=random_url)
+
+
 @app.route("/input", methods=["GET", "POST"])
 def input():
     """ Allowing the user to input url's """
