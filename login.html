@@ -13,6 +13,10 @@
 		function register() {
 			var username = document.getElementById("username").value;
 			var password = document.getElementById("password").value;
+			var password2 = document.getElementById("password2").value;
+			if (password2 == "") {
+				document.getElementById("password_div").style.display = "inline";
+			}
 
 		}
 
@@ -92,6 +96,10 @@
 			<br>
 			<input class="textbox" type="text" id="password" placeholder="Password" style="font-family: Futura; text-align: center; font-size: 24px">
 			<br>
+			<div id="password_div" style="display: none">
+				<input class="textbox" type="text" id="password2" placeholder="Password Confirm" style="font-family: Futura; text-align: center; font-size: 24px;">
+				<br>
+			</div>
 			<button class="button" onclick="login()" style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Login</button>
 			<br>
 			<button class="button" onclick="register()" style="font-weight: bold; font-family: Futura; text-align: center; font-size: 24px">Register</button>
