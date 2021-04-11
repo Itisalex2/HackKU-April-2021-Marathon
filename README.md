@@ -1,3 +1,7 @@
 # Hackku
 
-Theme: Health Tech
+Theme: General
+
+This website was create by Alex and Kee Meng
+
+
