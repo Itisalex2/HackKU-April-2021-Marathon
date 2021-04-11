@@ -49,6 +49,27 @@
 		document.getElementById("links_array").value = links.toString();
 	}
 
+	var dark = false;
+	function dark_mode() {
+		dark = !dark;
+		if (dark) {
+			document.getElementById("mode").innerHTML = "Light Mode";
+			document.getElementById("wrapper").style.backgroundColor = "#102344";
+			document.getElementById("info").style.backgroundColor = "#102344";
+		}
+		else {
+			document.getElementById("mode").innerHTML = "Dark Mode";
+			document.getElementById("wrapper").style.backgroundColor = "#e4f8ff";
+			document.getElementById("info").style.backgroundColor = "#e4f8ff";
+		}
+		document.body.classList.toggle("darkmode");
+		document.body.classList.toggle("lightmode");
+	}
+
+	function load() {
+		document.body.classList.toggle("lightmode");
+	}
+
 </script>
 <style>
 	.button {
@@ -113,12 +134,28 @@
 		transform: scale(1.08);
 		color: inherit;
 	}
+
+	.darkmode {
+		background-color: black;
+		color: white;
+		transition: 0.5s;
+		box-shadow: white;
+	}
+
+	.lightmode {
+		background-color: white;
+		color: black;
+		transition: 0.5s;
+		box-shadow: black;
+	}
+
 </style>
 
-<body style="font-family: Futura; font-weight: bold;">
+<body style="font-family: Futura; font-weight: bold;" onload="load()">
 	<form action="/logout" method="get" style="margin: 0px;">
 		<button class="small_button" style="text-align: left; font-size:20px" type="submit">Logout</button>
 	</form>
+	<button id="mode" class="small_button" style="text-align: left; font-size:20px; top:55px;" onclick="dark_mode()">Dark Mode</button>
 	<p style="position: absolute; top: 0px; left: 90px; font-weight: normal; font-size: 16px; ">Logged in as: <span id="username"></span></p>
 	<center style="font-size: 48px">
 		Welcome Back!
@@ -150,13 +187,13 @@
 	<br>
 	<button style="text-align: center;" class="button" onclick="about_us()">About Us</button>
 	<br>
-	<span id="info" style="font-weight: normal; font-size: 24px; text-align: center; display: none; background-color: #e4f8ff; width: 480px; margin: auto; border-radius: 15px; padding: 10px 10px">
+	<span id="info" style="transition: 0.2s; font-weight: normal; font-size: 24px; text-align: center; display: none; background-color: #e4f8ff; width: 480px; margin: auto; border-radius: 15px; padding: 10px 10px">
 		Welcome to this website!<br>
 		HackKU: General Track<br>
 		Created by Alex and Kee Meng<br>
 	</span>
 	<br>
-	<div style="top: 15px; right: 15px; position: absolute; background-color: #e4f8ff; text-align: center; padding: 10px; border-radius: 10px">
+	<div id="wrapper" style="transition: 0.5s; top: 15px; right: 15px; position: absolute; background-color: #e4f8ff; text-align: center; padding: 10px; border-radius: 10px">
 		<div id="inputs">
 			<button onclick="new_link()" style="font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #b3e3ff; margin: 10px; margin-top:0px; color: #004990;">Add Link</button>
 			<div id="input1">
