@@ -14,8 +14,8 @@ function new_link() {
 	input_count++;
 	var inputhtml = `
 		<div id="input${input_count}">
-			<input id="link${input_count}" type="text" class="thing" placeholder="Link" style="width: 350px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; margin-bottom: 8px; margin-left: 2px; margin-right: 4px">
-			<button onclick="del(${input_count})" class="thing2" style="width: 30px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 5px; border-color: transparent; background-color: #ff8080; color: #800000; margin-right: -5px; margin-bottom: 8px; margin-right: 0px">X</button>
+			<input id="link${input_count}" type="text" class="thing" placeholder="Link" style="width: 350px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 8px; border-color: transparent; margin-bottom: 8px; margin-left: 2px; margin-right: 4px">
+			<button onclick="del(${input_count})" class="thing2" style="width: 35px; display: inline; font-family: Futura; font-size: 16px; padding:5px; border-radius: 8px; border-color: transparent; background-color: #ff8080; color: #800000; margin-right: -5px; margin-bottom: 8px; margin-right: 0px">X</button>
 			<br>
 		</div>
 		`;
@@ -29,8 +29,16 @@ function new_link() {
 }
 
 function del(number) {
-	var element = document.getElementById("input" + String(number));
-	element.style.display = "none";
+	if (number == 0) {
+		for (var i = 1; i <= input_count; i++) {
+			var element = document.getElementById("input" + String(i));
+			element.style.display = "none";
+		}
+	}
+	else {
+		var element = document.getElementById("input" + String(number));
+		element.style.display = "none";
+	}
 }
 
 function save_links() {
