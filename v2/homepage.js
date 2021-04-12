@@ -89,6 +89,7 @@ function dark_mode() {
 
 function load() {
 	document.body.style.transitionDuration = "0s";
+	document.getElementById("wrapper").style.transitionDuration = "0s";
 	if (dark == "dark") {
 		document.body.classList.toggle("darkmode");
 		document.getElementById("mode").innerHTML = "Light Mode";
@@ -126,4 +127,5 @@ function load() {
 
 function add_transition() {
 	document.body.style.transitionDuration = "0.5s";
+	document.getElementById("wrapper").style.transitionDuration = "0.5s";
 }

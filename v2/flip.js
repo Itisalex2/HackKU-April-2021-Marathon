@@ -9,8 +9,4 @@ function change() {
 	}
 }
 
-function setup() {
-	setInterval(change, 8000);
-}
-
-setup();
+setInterval(change, 8000);
