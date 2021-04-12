@@ -18,4 +18,5 @@ function setup() {
 			count = 0;
 		}
 	}
+	setInterval(speed,0);
 }
