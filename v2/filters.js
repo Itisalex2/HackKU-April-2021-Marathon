@@ -84,22 +84,9 @@ var delay = 0;
 function start() {
 	if (started) {
 		document.getElementById("startbutton").innerHTML = "Start Filters";
-		document.getElementById("delay").style.display = "inline-block";
-		document.getElementById("min0").style.display = "inline-block";
-		document.getElementById("max0").style.display = "inline-block";
-		document.getElementById("min1").style.display = "inline-block";
-		document.getElementById("max1").style.display = "inline-block";
-		document.getElementById("min2").style.display = "inline-block";
-		document.getElementById("max2").style.display = "inline-block";
-		document.getElementById("min3").style.display = "inline-block";
-		document.getElementById("max3").style.display = "inline-block";
-		document.getElementById("min4").style.display = "inline-block";
-		document.getElementById("max4").style.display = "inline-block";
-		document.getElementById("min5").style.display = "inline-block";
-		document.getElementById("max5").style.display = "inline-block";
-		document.getElementById("min6").style.display = "inline-block";
-		document.getElementById("max6").style.display = "inline-block";
 		document.getElementById("reset").style.display = "inline-block";
+		document.getElementById("delay").style.display = "inline-block";
+		document.getElementById("minmax").style.display = "inline";
 		document.getElementById("debug0").innerHTML = "Brightness: ";
 		document.getElementById("debug1").innerHTML = "Contrast: ";
 		document.getElementById("debug2").innerHTML = "Grayscale: ";
@@ -112,20 +99,7 @@ function start() {
 	else {
 		document.getElementById("startbutton").innerHTML = "Stop Filters";
 		document.getElementById("delay").style.display = "none";
-		document.getElementById("min0").style.display = "none";
-		document.getElementById("max0").style.display = "none";
-		document.getElementById("min1").style.display = "none";
-		document.getElementById("max1").style.display = "none";
-		document.getElementById("min2").style.display = "none";
-		document.getElementById("max2").style.display = "none";
-		document.getElementById("min3").style.display = "none";
-		document.getElementById("max3").style.display = "none";
-		document.getElementById("min4").style.display = "none";
-		document.getElementById("max4").style.display = "none";
-		document.getElementById("min5").style.display = "none";
-		document.getElementById("max5").style.display = "none";
-		document.getElementById("min6").style.display = "none";
-		document.getElementById("max6").style.display = "none";
+		document.getElementById("minmax").style.display = "none";
 		document.getElementById("reset").style.display = "none";
 		if (document.getElementById("delay").value != "") {
 			delay = Number(document.getElementById("delay").value);
