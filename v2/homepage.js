@@ -20,6 +20,12 @@ function new_link() {
 		</div>
 		`;
 	document.getElementById("inputs").insertAdjacentHTML("beforeend", inputhtml);
+	var elem = document.getElementById(`link${input_count}`);
+	elem.onkeyup = function(e){
+		if(e.keyCode == 9 || e.keyCode == 13){
+			new_link();
+		}
+	}
 }
 
 function del(number) {
@@ -88,6 +94,14 @@ function load() {
 		document.getElementById("info").style.backgroundColor = "#e4f8ff";
 	}
 	setTimeout(add_transition,500);
+
+	var elem = document.getElementById("link1");
+	elem.onkeyup = function(e){
+		if(e.keyCode == 9 || e.keyCode == 13){
+			new_link();
+		}
+	}
+
 
 	var urls = localStorage.getItem("urls").split(",");
 
