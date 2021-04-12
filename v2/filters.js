@@ -153,25 +153,3 @@ function reset() {
 	document.getElementById("max6").value = "5";
 	image.style.filter = "none";
 }
-
-// var screen_width = window.innerWidth;
-// var screen_height = window.innerHeight;
-// // var width = document.getElementById("image").width;
-// // var height = document.getElementById("image").height;
-
-// function full() {
-// 	console.log([width,height,screen_width,screen_height]);
-// 	if (width/height > screen_width/screen_height) {
-// 		// document.getElementById("image").width = screen_width;
-// 		// document.getElementById("image").height = screen_width * width/height;
-// 		document.getElementById("image").width = screen_width;
-// 		document.getElementById("image").height = 'auto';
-// 	}
-// 	else {
-// 		// document.getElementById("image").width = screen_height * width/height;
-// 		// document.getElementById("image").height = screen_height;
-// 		document.getElementById("image").width = 'auto';
-// 		document.getElementById("image").height = screen_height;
-// 	}
-// }
-
