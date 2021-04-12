@@ -35,9 +35,16 @@ function save_links() {
 		}
 
 	}
-	console.log(links);
-	document.getElementById("links_array").value = links.toString();
+	// console.log(links);
+	if (localStorage.getItem("urls") === null) {
+		localStorage.setItem("urls", "");
+	}
+	localStorage.setItem("urls", links.toString());
+
+	console.log(localStorage.getItem("urls"))
 }
+
+
 
 if (localStorage.getItem("mode") === null) {
 	localStorage.setItem("mode", "light");
@@ -81,6 +88,18 @@ function load() {
 		document.getElementById("info").style.backgroundColor = "#e4f8ff";
 	}
 	setTimeout(add_transition,500);
+
+	var urls = localStorage.getItem("urls").split(",");
+
+	if (urls != "") {
+		for (var i = 0; i < urls.length; i++) {
+			console.log(urls[i]);
+			document.getElementById(`link${i+1}`).value = String(urls[i]);
+			new_link();
+		}
+	}
+
+
 }
 
 function add_transition() {
