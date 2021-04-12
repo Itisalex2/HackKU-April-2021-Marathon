@@ -1,0 +1,22 @@
+.image {
+	margin: auto;
+	display: block;
+	animation: spin infinite;
+	animation-duration: 4s;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotateX(-180deg);
+	}
+
+	50% {
+		transform: rotateX(0deg);
+		;
+	}
+
+	100% {
+		transform: rotateX(180deg);
+		;
+	}
+}
