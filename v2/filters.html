@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<title>Screensaver: Filters</title>
-	<link rel="stylesheet" href="theme.css">
-	<link rel="stylesheet" href="buttons.css">
-	<script src="filters.js"></script>
-	<script src="mode.js"></script>
-</head>
-
-<body style="font-family: Futura; font-weight: bold;" onload="load()">
-	<button class="small_button" onclick="window.location.href='homepage.html';">
-		Homepage
-	</button>
-	<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
-	<br>
-	<br>
-	<br>
-	<br>
-	<img src="image.jpg" id="image" width="auto" height="100%">
-	<br>
-	<button id="startbutton" onclick="start()">Start Filters</button>
-	<input type="text" id="delay" placeholder="delay in ms" style="width: 64px">
-	<br>
-	<span id="debug0" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Brightness: </span>
-	<input type="text" id="min0" value="100" placeholder="min"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max0" value="100" placeholder="max"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug1" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Contrast: </span>
-	<input type="text" id="min1" value="100" placeholder="min"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max1" value="150" placeholder="max"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug2" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Grayscale: </span>
-	<input type="text" id="min2" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max2" value="25" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug3" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Hue-rotate: </span>
-	<input type="text" id="min3" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max3" value="360" placeholder="max"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug4" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Invert: </span>
-	<input type="text" id="min4" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max4" value="0" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug5" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Saturate: </span>
-	<input type="text" id="min5" value="75" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max5" value="250" placeholder="max"
-		style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<span id="debug6" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Sepia: </span>
-	<input type="text" id="min6" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
-	<input type="text" id="max6" value="5" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
-	<br>
-	<button id="reset" onclick="reset()">Reset</button>
-
-</body>
-
+	<head>
+		<title>Screensaver: Filters</title>
+		<link rel="stylesheet" href="theme.css">
+		<link rel="stylesheet" href="buttons.css">
+		<script src="filters.js"></script>
+		<script src="mode.js"></script>
+	</head>
+	<body style="font-family: Futura; font-weight: bold;" onload="load()">
+		<button class="small_button" onclick="window.location.href='homepage.html';">
+			Homepage
+		</button>
+		<button id="mode" class="small_button" style="text-align: left; top: 50px; font-size:16px;" onclick="dark_mode()">Dark Mode</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<img src="image.jpg" id="image" width="auto" height="100%">
+		<br>
+		<button id="startbutton" onclick="start()">Start Filters</button>
+		<input type="text" id="delay" placeholder="delay in ms" style="width: 64px">
+		<br>
+		<span id="debug0" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Brightness: </span>
+		<input type="text" id="min0" value="100" placeholder="min"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max0" value="100" placeholder="max"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug1" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Contrast: </span>
+		<input type="text" id="min1" value="100" placeholder="min"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max1" value="150" placeholder="max"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug2" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Grayscale: </span>
+		<input type="text" id="min2" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max2" value="25" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug3" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Hue-rotate: </span>
+		<input type="text" id="min3" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max3" value="360" placeholder="max"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug4" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Invert: </span>
+		<input type="text" id="min4" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max4" value="0" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug5" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Saturate: </span>
+		<input type="text" id="min5" value="75" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max5" value="250" placeholder="max"
+			style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<span id="debug6" style="padding-left: 5px; font-weight: normal; font-size: 16px;">Sepia: </span>
+		<input type="text" id="min6" value="0" placeholder="min" style="width: 32px; font-family: Futura; font-size: 16px">
+		<input type="text" id="max6" value="5" placeholder="max" style="width: 32px; font-family: Futura; font-size: 16px">
+		<br>
+		<button id="reset" onclick="reset()">Reset</button>
+	</body>
 </html>

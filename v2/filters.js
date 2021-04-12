@@ -46,6 +46,7 @@ function setup() {
 }
 
 var string = "";
+var image = null;
 function filter() {
 	image = document.getElementById("image");
 	string = "";
@@ -79,6 +80,7 @@ function filter() {
 
 var started = false;
 var repeat = null;
+var delay = 0;
 function start() {
 	if (started) {
 		document.getElementById("startbutton").innerHTML = "Start Filters";

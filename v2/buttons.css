@@ -4,16 +4,17 @@
 	font-size: 16px;
 	border-radius: 8px;
 	border-color: inherit;
+	border-style: hidden;
 	margin: auto;
 	vertical-align: middle;
 	transform: perspective(1px);
 	transition-duration: 0.2s;
 	transition-property: transform;
-	color: inherit;
+	color: black;
 	background-color: #CCC;
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 10px;
+	right: 10px;
 }
 
 .small_button:hover,
