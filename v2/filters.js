@@ -155,3 +155,15 @@ function reset() {
 	document.getElementById("max6").value = "5";
 	image.style.filter = "none";
 }
+
+var urls = localStorage.getItem("urls").split(",");
+var count = 0;
+function change_image() {
+	// console.log(urls[count]);
+	document.getElementById("image").src = urls[count];
+	document.getElementById("image").height = screen.height/2;
+	count++;
+	if (count >= urls.length) {
+		count = 0;
+	}
+}

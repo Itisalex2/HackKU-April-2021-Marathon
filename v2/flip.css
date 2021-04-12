@@ -2,21 +2,21 @@
 	margin: auto;
 	display: block;
 	animation: spin infinite;
+	animation-timing-function: cubic-bezier(0,0,0,1);
 	animation-duration: 4s;
+	animation-direction: alternate;
 }
 
 @keyframes spin {
 	0% {
-		transform: rotateX(-180deg);
-	}
-
-	50% {
-		transform: rotateX(0deg);
-		;
+		/*transform: rotateX(180deg);*/
+		transform: scaleY(0);
 	}
 
 	100% {
-		transform: rotateX(180deg);
+		/*transform: rotateX(0deg);*/
+		transform: scaleY(1);
 		;
 	}
+
 }

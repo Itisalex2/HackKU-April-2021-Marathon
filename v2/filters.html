@@ -7,7 +7,7 @@
 		<script src="filters.js"></script>
 		<script src="mode.js"></script>
 	</head>
-	<body style="font-family: Futura; font-weight: bold;" onload="load()">
+	<body style="font-family: Futura; font-weight: bold;" onload="load(); setup(); change_image();">
 		<button class="small_button" onclick="window.location.href='homepage.html';">
 			Homepage
 		</button>
@@ -16,7 +16,9 @@
 		<br>
 		<br>
 		<br>
-		<img src="image.jpg" id="image" width="auto" height="100%">
+		<img id="image" width="auto" height="50%">
+		<br>
+		<button onclick="change_image()">Change Image</button>
 		<br>
 		<button id="startbutton" onclick="start()">Start Filters</button>
 		<input type="text" id="delay" placeholder="delay in ms" style="width: 64px">

@@ -36,10 +36,18 @@ function del(number) {
 function save_links() {
 	var links = [];
 	for (var i = 1; i <= input_count; i++) {
-		if (document.getElementById("input" + String(i)).style.display != "none" && document.getElementById("link" + String(i)).value != "") {
-			links.push(document.getElementById("link" + String(i)).value);
+		if (document.getElementById(`input${i}`).style.display != "none" && document.getElementById("link" + String(i)).value != "") {
+			var url = document.getElementById("link" + String(i)).value;
+			if (url.includes(" ")) {
+				var splitted = url.split(" ");
+				for (var j = 0; j < splitted.length; j++) {
+				links.push(splitted[j]);
+				}
+			}
+			else {
+				links.push(document.getElementById("link" + String(i)).value);
+			}
 		}
-
 	}
 	// console.log(links);
 	if (localStorage.getItem("urls") === null) {
@@ -47,7 +55,7 @@ function save_links() {
 	}
 	localStorage.setItem("urls", links.toString());
 
-	console.log(localStorage.getItem("urls"))
+	// console.log(localStorage.getItem("urls"))
 }
 
 
@@ -107,7 +115,7 @@ function load() {
 
 	if (urls != "") {
 		for (var i = 0; i < urls.length; i++) {
-			console.log(urls[i]);
+			// console.log(urls[i]);
 			document.getElementById(`link${i+1}`).value = String(urls[i]);
 			new_link();
 		}

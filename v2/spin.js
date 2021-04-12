@@ -7,4 +7,15 @@ function speed() {
 	}
 }
 
-setInterval(speed, 100);
+var urls = localStorage.getItem("urls").split(",");
+var count = 0;
+function setup() {
+	for (var i = 1; i <= 6; i++) {
+		document.getElementById(`side${i}`).style.backgroundImage = `url('${urls[count]}')`;
+		document.getElementById(`side${i}`).style.backgroundSize = "256px 256px";
+		count ++;
+		if (count >= urls.length) {
+			count = 0;
+		}
+	}
+}

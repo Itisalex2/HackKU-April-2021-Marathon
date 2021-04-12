@@ -11,7 +11,9 @@ function mouse_position(event) {
 document.addEventListener("click", mouse_position);
 
 var count = 0;
-
+var count2 = 0;
+var urls = localStorage.getItem("urls").split(",");
+console.log(urls);
 function start() {
 
 	let screen_width = window.innerWidth;
@@ -29,7 +31,7 @@ function start() {
 
 	document.body.appendChild(image);
 	image.id = `image_${count}`;
-	image.src = "image.png";
+	image.src = urls[count2];
 	image.width = "100";
 	image.height = "100";
 	image.style.display = "block";
@@ -37,6 +39,11 @@ function start() {
 	image.style.left = `${x}px`;
 	image.style.top = `${y}px`;
 	count++;
+	count2 ++;
+
+	if (count2 >= urls.length) {
+		count2 = 0;
+	}
 
 	function move() {
 		if (x + width - 10 >= screen_width || x + 10 <= 0) {

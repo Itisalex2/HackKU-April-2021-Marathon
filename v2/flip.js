@@ -1,10 +1,16 @@
+var count = 0;
+var urls = localStorage.getItem("urls").split(",");
 function change() {
-	var y = Math.random();
-	if (y < 0.5) {
-		document.getElementById("image").src = "image.png";
+	document.getElementById("image").src = urls[count];
+	document.getElementById("image").height = screen.height;
+	count++;
+	if (count >= urls.length) {
+		count = 0;
 	}
-	else {
-		document.getElementById("image").src = "image.jpg";
-	}
-	setTimeout(change, 2000);
 }
+
+function setup() {
+	setInterval(change, 8000);
+}
+
+setup();
